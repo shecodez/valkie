@@ -1,7 +1,11 @@
 <template>
   <div id="app">
-    <h1>Valkie (Vue walkie talkie)</h1>
-    <p>Realtime voice chat messenger</p>
+    <header>
+      <h1>Valkie (Vue walkie talkie)</h1>
+      <p>Realtime voice chat messenger</p>
+    </header>
+
+    <router-view></router-view>
   </div>
 </template>
 

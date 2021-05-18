@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3>Logged-in as {{ user.uid }}</h3>
+    <span>Logged-in as {{ user.uid }}</span>
     <button @click="auth.signOut()">Sign Out</button>
   </div>
 </template>

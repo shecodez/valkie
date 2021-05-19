@@ -2,30 +2,38 @@
   <main>
     <h3>Welcome to ChatRoom {{ chatId }}</h3>
     <User #user="{ user }">
-      <ul>
-        <li v-for="message of messages" :key="message.id">
-          {{ message.text }}
-        </li>
-      </ul>
+      <div v-if="user">
+        <ul>
+          <li v-for="message of messages" :key="message.id">
+            <ChatMessage
+              :message="message"
+              :isOwner="user.uid === message.sender"
+            />
+          </li>
+        </ul>
 
-      <input type="text" v-model="newMessageText" class="input" />
-      <button
-        :disabled="!newMessageText || isLoading"
-        class="button is-success"
-        @click="addMessage(user.uid)"
-      >
-        Send Message
-      </button>
+        <input type="text" v-model="newMessageText" class="input" />
+        <button
+          :disabled="!newMessageText || isLoading"
+          class="button is-success"
+          type="text"
+          @click="addMessage(user.uid)"
+        >
+          Send Message
+        </button>
+      </div>
     </User>
   </main>
 </template>
 
 <script>
-import User from "./User.vue";
 import { db } from "../firebase";
 
+import User from "./User.vue";
+import ChatMessage from "./ChatMessage";
+
 export default {
-  components: { User },
+  components: { User, ChatMessage },
   data() {
     return {
       newMessageText: "",
@@ -65,4 +73,19 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-width: 500px;
+  background-color: #efefef;
+  padding: 10px;
+  border-radius: 0;
+}
+li {
+  display: flex;
+}
+</style>

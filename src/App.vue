@@ -5,7 +5,9 @@
       <p>Realtime voice chat messenger</p>
     </header>
 
-    <router-view></router-view>
+    <main class="content">
+      <router-view></router-view>
+    </main>
   </div>
 </template>
 

@@ -1,6 +1,9 @@
 <template>
   <div class="message" :class="{ 'from-user': isOwner }">
-    <p>{{ message.text }}</p>
+    <div>
+      <p>{{ message.text }}</p>
+      <audio v-if="message.audioURL" :src="message.audioURL" controls></audio>
+    </div>
     <span class="sender">from uid: {{ message.sender }}</span>
   </div>
 </template>
@@ -28,6 +31,6 @@ export default {
   margin-left: auto;
 }
 .sender {
-  font-size: 0.8rem;
+  font-size: 0.6rem;
 }
 </style>

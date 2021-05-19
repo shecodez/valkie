@@ -1,7 +1,7 @@
 <template>
   <div>
     <span>Logged-in as {{ user.uid }}</span>
-    <button @click="auth.signOut()">Sign Out</button>
+    <button @click="auth.signOut()" class="button">Sign Out</button>
   </div>
 </template>
 

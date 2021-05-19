@@ -5,21 +5,25 @@
       <p>Realtime voice chat messenger</p>
     </header>
 
-    <main class="content">
+    <main>
       <router-view></router-view>
     </main>
   </div>
 </template>
 
 <script>
-import { auth } from "./firebase";
-
-console.log(auth);
-
 export default {
   name: "App",
   components: {},
 };
 </script>
 
-<style></style>
+<style>
+header {
+  text-align: center;
+}
+button,
+input {
+  margin-bottom: 10px;
+}
+</style>

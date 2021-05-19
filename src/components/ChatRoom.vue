@@ -4,6 +4,11 @@
 
     <router-link to="/">Home</router-link>
 
+    <p>
+      Open this link in another browser window to chat
+      <code>http://localhost:8080/#/chats/{{ chatId }}</code>
+    </p>
+
     <User #user="{ user }">
       <div v-if="user">
         <ul>
@@ -35,7 +40,7 @@
 
         <button
           :disabled="(!newMessageText && !newAudio) || isLoading"
-          class="send-btn button is-success"
+          class="button is-success"
           type="text"
           @click="addMessage(user.uid)"
         >
@@ -165,7 +170,7 @@ export default {
 <style>
 ul {
   list-style-type: none;
-  margin: 0;
+  margin: 0 !important;
   padding: 0;
   display: flex;
   flex-direction: column;
@@ -176,9 +181,5 @@ ul {
 }
 li {
   display: flex;
-}
-
-.send-btn {
-  margin-top: 10px;
 }
 </style>

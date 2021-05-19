@@ -1,7 +1,7 @@
 <template>
-  <aside>
+  <aside class="section">
     <h3>Sign In Anonymously</h3>
-    <button @click="auth.signInAnonymously()">Sign In</button>
+    <button @click="auth.signInAnonymously()" class="button">Sign In</button>
 
     <div v-if="isNewUser">
       <h3>Sign Up for a New Account</h3>
@@ -25,7 +25,7 @@
 
     <button
       @click="signInOrCreateUser()"
-      class="button"
+      class="button is-info"
       :class="{ 'is-loading': isLoading }"
     >
       {{ isNewUser ? "Sign Up" : "Login" }}
